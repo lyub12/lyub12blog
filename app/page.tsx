@@ -1,69 +1,80 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
+
+  const recentblogs = [
+    {
+      blogName: "bitcoin showdown",
+      blogImage: "/public/blog-banner.jpg",
+      blogViews: 10
+    },
+    {
+      blogName: "A new way to build smart contract",
+      blogImage: "/public/blog-banner.jpg",
+      blogViews: 40
+    },
+    {
+      blogName: "Build a blog using nextjs",
+      blogImage: "/public/blog-banner.jpg",
+      blogViews: 60
+    }
+  ]
+  
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div>
+
+        <main>
+
+          <div>
+            <div>
+              <h1>Lyub12 Blogs</h1>
+              <h2>read something, like and comment</h2>
+              <div>
+                <button>login</button>
+                <button>register</button>
+              </div>
+            </div>
+            <div>
+              {/* Circle image */}
+            </div>
+          </div>
+
+          <div>
+            <h2>Featured Blog</h2>
+            <article>
+              <h2>My first blog</h2>
+              <Image src="/public/blog-banner.jpg" alt="blog banner"  />
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem modi, laudantium ipsum facilis aperiam dolore laborum tempora officia laboriosam aliquam cumque non cum eos nemo hic quos ad animi nostrum id. Itaque dolores velit accusamus perferendis non ipsa magnam illo. <Link href="/">Read more</Link></p>
+              <div>
+                <span>likes: <span>22</span></span>
+                <span>dislikes: <span>2</span></span>
+                <span>views: <span>44</span></span>
+              </div>
+            </article>
+          </div>
+
+          <div>
+            <h2>Recent Blogs</h2>
+            <div>
+              {
+                recentblogs.map((item) => (
+                  <div key={crypto.randomUUID()}>
+                    <h2>{item.blogName}</h2>
+                    <div>
+                      <Image src={item.blogImage} alt="blog image" />
+                    </div>
+                    <span>views: {item.blogViews}</span>
+                    <Link href="/">view</Link>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+
+        </main>
+
+
     </div>
   );
 }
