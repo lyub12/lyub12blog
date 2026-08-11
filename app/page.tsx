@@ -20,6 +20,10 @@ export default function Home() {
       blogViews: 60
     }
   ]
+
+  const categories = [
+    "crypto", "coding", "gaming", "AI", "technology",
+  ]
   
   return (
     <div>
@@ -41,6 +45,15 @@ export default function Home() {
           </div>
 
           <div>
+            <h2>Explore your interest</h2>
+            {
+              categories.map((item) => (
+                <Link key={crypto.randomUUID()} href="/">{item}</Link>
+              ))
+            }
+          </div>
+
+          <div>
             <h2>Featured Blog</h2>
             <article>
               <h2>My first blog</h2>
@@ -48,7 +61,7 @@ export default function Home() {
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem modi, laudantium ipsum facilis aperiam dolore laborum tempora officia laboriosam aliquam cumque non cum eos nemo hic quos ad animi nostrum id. Itaque dolores velit accusamus perferendis non ipsa magnam illo. <Link href="/">Read more</Link></p>
               <div>
                 <span>likes: <span>22</span></span>
-                <span>dislikes: <span>2</span></span>
+                <span>comments: <span>2</span></span>
                 <span>views: <span>44</span></span>
               </div>
             </article>
